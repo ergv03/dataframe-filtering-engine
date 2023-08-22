@@ -4,20 +4,16 @@ from datetime import date, timedelta, datetime
 class DataFrameFilter:
     """
     Enable filtering of a dataframe using a list of simplified "logic marbles", that are JSON compliant
-    Can receive either a sav ID or a Pandas dataframe with the IB data
     The main method to use is called filter, which receives a list of "logic marbles" that follow this structure:
     [<[AND|OR|NOT]>, <expression_1>, <expression_2>, ...]
     The <[AND|OR|NOT]> element at the start of the list is optional. If not indicated, then AND is used
-    Each expression uses this structure:
-    ['column', 'operator', 'value']
-    where:
-        column is the name of the dataframe column to filter by
-        operator is the boolean operation (equal_to, greater_than, etc.)
-        value is the threshold value (can be integer, float or string)
-    Few examples:
-    [['sub_business_entity', 'equal_to', 'Security Endpoints']]
-    ['OR', ['sub_business_entity', 'equal_to', 'Security Endpoints'], ['sub_business_entity', 'equal_to', 'Ent Switching']]
-    ['AND', ['sub_business_entity', 'equal_to', 'Security Endpoints'], ['shipdate', 'earlier_than', '2020-01-01']]
+    Each expression is a dictionary with three keys:
+    {
+        key_to_compare,
+        comparison_operator,
+        value_to_compare
+    }
+    Please refer to the rules.py file for some examples.
     """
 
     def __init__(self, data: pd.DataFrame):
