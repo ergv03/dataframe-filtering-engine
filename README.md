@@ -9,7 +9,7 @@ Your business logic can be stored in a JSON, allowing it to be stored in most da
 Simply initialize the DataFrameFilter class with the dataframe you want to filter, and then call the .filter method by passing the JSON object with the filter rules. Example:
 
 ```
-from data_filtering import DataFrameFilter
+from dataframe_filtering import DataFrameFilter
 
 df_filter = DataFrameFilter(df)
 df_filter.filter(rule_json)
