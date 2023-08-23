@@ -4,6 +4,19 @@ Novel way to filter pandas dataframe based on a business logic stored in a JSON 
 
 Your business logic can be stored in a JSON, allowing it to be stored in most databases, and you can also easily create REST APIs to allow your application to create/modify such JSON objects. This way, you can for example have a UI where non-technical people (Sales, HR, etc.) can manage business rules, and then such rules can be applied to a dataframe by your code in the backend.
 
+## How to use it
+
+Simply initialize the DataFrameFilter class with the dataframe you want to filter, and then call the .filter method by passing the JSON object with the filter rules. Example:
+
+```
+from data_filtering import DataFrameFilter
+
+df_filter = DataFrameFilter(df)
+df_filter.filter(rule_json)
+```
+
+For some rule examples, Please refer to the rules.py file.
+
 ## How it works
 
 This code allows the filtering of a dataframe based on a JSON object that uses the following structure:
@@ -47,7 +60,7 @@ and it translates to: (Country equal to United Kingdom AND Quantity greater than
 
 For more examples, check the rules.py file.
 
-## Supported filters:
+## Supported filters
 
 Most of the supported filters are self explanatory:
 
