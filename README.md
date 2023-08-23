@@ -47,3 +47,21 @@ and it translates to: (Country equal to United Kingdom AND Quantity greater than
 
 For more examples, check the rules.py file.
 
+## Supported filters:
+
+Most of the supported filters are self explanatory:
+
+- AND
+- NOT
+- OR
+- equal_to
+- greater_than
+- greater_equal_than
+- less_than
+- less_equal_than
+- is_in (object is in list)
+- contains (string A contains string B)
+- earlier_than (date comparison)
+- later_than (date comparison)
+
+For dates, the ISO format is supported ('%Y-%m-%d', i.e. '2023-08-23') and also pre-defined labels: TODAY, LAST_X_DAYS and NEXT_X_DAYS, where X can be any number. Please refer to the code for more details.
